@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+    {% load static %}
+{% block content %}
+
+<form method="POST" class="post-form" action="/emp" xmlns="http://www.w3.org/1999/html">
+        {% csrf_token %}
+<center>
+    <label ></label>
+
+    <h3>Enter Details</h3>
+<br>
+    <label class="col-sm-2 col-form-label">Employee Id:</label>
+      {{ form.eid }}
+    <br><br>
+
+    <label class="col-sm-2 col-form-label">Employee Name:</label>
+      {{ form.ename }}
+    <br><br>
+
+    <label class="col-sm-2 col-form-label">Employee Email:</label>
+      {{ form.eemail }}
+    <br><br>
+
+    <label class="col-sm-2 col-form-label">Employee Contact:</label>
+      {{ form.econtact }}
+<br><br>
+
+    <label></label>
+    <button type="submit" >Submit</button>
+</center>
+</form>
+{%endblock%}

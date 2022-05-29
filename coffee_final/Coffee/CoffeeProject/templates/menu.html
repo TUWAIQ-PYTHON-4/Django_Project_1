@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+div {
+  height: 700px;
+  width: 50%;
+float:right;
+clear:right;
+margin-left:20px
+}
+float:right;clear:right;margin-left:20px
+{% block content %}
+    <title>{% block title %} menu!{% endblock %}</title>
+
+
+<center>
+    <h4>Coffee Menu</h4><br>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for i in menu %}
+  <div class="col">
+    <div class="card">
+      <img src="{{ i.photo.url }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ i.name_coffee }}</h5>
+        <p class="card-text">{{ i.discription }}</p>
+        <h5 class="card-title" align="rigth">{{i.price}} SR </h5>
+        <p><br> <br><br></p>
+
+      </div>
+    </div>
+  </div>
+
+    {% endfor %}
+  <p>
+    <br>
+    <br>
+    <br>
+  </p>
+</center>
+
+<p>
+  <br>
+  <br>
+  <br>
+  <br>
+<br>
+  <br>
+  <br>
+  <br><br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><br>
+  <br>
+  <br>
+  <br>
+    <br>
+  <br>
+  <br><br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><br>
+  <br>
+  <br>
+  <br>
+</p>
+</p>
+
+{% endblock %}
+<p>
+  <br>
+  <br>
+  <br>
+    <br>
+  <br>
+  <br><br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><br>
+  <br>
+  <br>
+  <br>
+</p>
+  <br>
+
+</p>

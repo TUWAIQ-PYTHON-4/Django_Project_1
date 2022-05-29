@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+div {
+  height: 700px;
+  width: 50%;
+float:right;
+clear:right;
+margin-left:20px
+}
+float:right;clear:right;margin-left:20px
+.card-img-top{
+ width="500" height="600"
+}
+{% block content %}
+    <title>{% block title %} menu!{% endblock %}</title>
+
+
+<center>
+  <h4>Sweet Menu</h4><br>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for i in sweet %}
+  <div class="col">
+    <div class="card">
+      <img src="{{ i.photo.url }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ i.name_sweet }}</h5>
+        <p class="card-text">{{ i.discription }}</p>
+        <h5 class="card-title" align="rigth">{{i.price}} SR </h5>
+        <br><br>
+      </div>
+    </div>
+  </div>
+     <br><br>
+     {% endfor %}
+
+</div>
+  <p>
+    <br>
+    <br>
+    <br>
+  </p>
+</center>
+
+<p>
+  <br>
+  <br>
+  <br>
+  <br>
+<br>
+  <br>
+  <br>
+  <br><br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><br>
+  <br>
+  <br>
+  <br>
+  <p>
+  <br>
+  <br>
+  <br>
+  <br>
+<br>
+  <br>
+  <br>
+  <br><br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><br>
+  <br>
+  <br>
+  <br>
+</p>
+
+{% endblock %}
+<p>
+  <br>
+  <br>
+  <br>
+  <br>
+
+</p>

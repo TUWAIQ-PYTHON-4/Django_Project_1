@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+.add{
+  height:15px;
+  width: 50%;
+}
+{% block content %}
+<center>
+<div>
+    <table class="table">
+        <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Job Time</th>
+      <th scope="col">Cline Number</th>
+        <th scope="col">Presence </th>
+    </tr>
+  </thead>
+
+     <h1>Employees Information</h1><br>
+<p >
+     <form class="d-flex" method="POST">
+           {% csrf_token %}
+             {{ form.as_p }}
+    <input  class="add" type="text" class="form-control" name="name" placeholder=" Add employee name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <button class="btn btn-outline-secondary" type="button">Add</button>
+
+
+
+        <input class="form-control me-2" type="search"  placeholder="To Do Item" aria-label="Search">
+        <button class="btn btn-outline-secondary" type="submit" style="border-color: white" style="color:white " >Add to list</button>
+      </form>
+
+</p>
+
+
+    {% if context%}
+        <tbody>
+         {% for items in context %}
+    <tr>
+      <th scope="row">{{items.id}}</th>
+      <td>{{items.name}}</td>
+      <td>{{items.time_job}}</td>
+        <td>{{items.cline_number}}</td>
+      <td>{{items.completed}}</td>
+    </tr>
+        </tbody>
+         {% endfor %}
+
+
+    </table>
+
+{%endif%}
+
+{% endblock %}
+    </center>
+    </div>
