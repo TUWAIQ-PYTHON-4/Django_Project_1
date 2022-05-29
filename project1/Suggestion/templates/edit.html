@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}  {% endblock %}
+
+{% block content %}
+
+{% if item %}
+    <form class="container" method="POST">
+       {% csrf_token %}
+      <p><input class="form-control me-2" type="" placeholder={{item.name}} name="name" aria-label="Search"></p>
+      <p><button class="btn btn-outline-success" type="submit" >Submit</button></p>
+    </form>
+{% endif %}
+
+{% endblock %}
