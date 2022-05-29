@@ -6,7 +6,7 @@
 The main objective behind this project is to build a back-end Django application using what you learn during this week. Moreover, to evaluate Django learning outcomes by applying main concepts using technologies related such as MVT pattern, PostgreSQL, ORM, etc.
 
 ### Project Idea
-The project idea is a online store for jewelrey called "Lavender" is has 3 types of products (earrings ,nackleses,rings).
+The project idea is an online store for jewelrey called "Lavender" is has 3 types of products (earrings ,necklaces,rings).
 the website has 3 pages (home,products,review).
 the user can browsing this store and write review also delete it and edit it 
 
