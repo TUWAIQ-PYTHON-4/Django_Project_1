@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+<form method="post">
+{% csrf_token %}
+    Rate your experience with us
+{{ form.as_p }}
+
+<p>
+
+<p>
+<p>
+<input type="submit" name="submit" value="Submit">
+</p>
+<p>
+
+</p>
+</form>
+</div>
+{% endblock %}
