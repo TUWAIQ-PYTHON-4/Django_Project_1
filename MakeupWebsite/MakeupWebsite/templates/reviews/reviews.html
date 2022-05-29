@@ -1,0 +1,21 @@
+{% extends 'products/base.html' %}
+{% load static %}
+
+    {% block content %}
+    <form  method='POST' action="{url 'reviews/reviews'}">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+        <p> <input type="submit" name="reviews"> send review </input></p>
+    </form>
+
+<!--<p>-->
+<!--<input type="submit" name="submit_input" value="Submit Input">-->
+<!--</p>-->
+<!--<p>-->
+
+<!--</p>-->
+<!--<input type="hidden" name="hidden_input" value="Hidden Value">-->
+
+<!--</form>-->
+{% endblock %}
