@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+<title> Brands </title>
+{% endblock title %}
+
+{% block content %}
+<br><br>
+<div class="container">
+    <div class="container-fluid">
+        <nav aria-label="breadcrumb" class="navbar">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'products:home' %} ">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Brands</li>
+            </ol>
+        </nav>
+
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            {% for brand in brands_list %}
+            <div class="col">
+                <div class="card h-100">
+                    <div class="col d-flex align-items-center justify-content-center">
+                        {% if brand.photo %}
+                        <a href="{% url 'brands:show_brand' brand.id %}"> <img src="{{ brand.photo.url }}" alt="..."
+                                                                                 class="mx-auto" style="width: 200px;">
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

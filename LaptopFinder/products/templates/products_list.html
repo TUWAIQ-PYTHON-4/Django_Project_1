@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Product List</title>
+{% endblock title %}
+
+{% block content %}
+<h1 style="text-align: center; padding-top: 1em; padding-bottom: 1em;">Products Information</h1>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">product_name</th>
+        <th scope="col">description</th>
+        <th scope="col">price</th>
+        <th scope="col">type</th>
+        <th scope="col">photo</th>
+        <th scope="col">brand_name</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for p in products %}
+    <tr>
+        <th scope="row">{{ p.product_name }}</th>
+        <td>{{ p.description }}</td>
+        <td>{{ p.price }}</td>
+        <td>{{ p.type }}</td>
+        <td>{{ p.photo }}</td>
+        <td>{{ p.brand_name }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<div class="text-center">
+    <a href="{% url 'products:create_product' %}">
+        <button type="button" class="btn btn-primary">Add New Info</button>
+    </a>
+</div>
+{% endblock content %}

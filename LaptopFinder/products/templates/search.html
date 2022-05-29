@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}<title>Laptop Finder | Search </title>{% endblock %}
+{% block content %}
+<br><br>
+
+{% if searched %}
+<h1> You Searched For < {{ searched }} ></h1>
+<br><br>
+{% for i in product %}
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card">
+                {% if i.photo %}
+                <img src="{{ i.photo.url }}" class="card-img-top" alt="..." height="200" width=200>
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ i.brand_name }}</h5> <br>
+                    <h5 class="card-title"> {{ i.product_name }}</h5> <br>
+                    <p class="card-text"><b>{{ i.type }}</b> <br> {{ i.description }} </p> <br>
+                    <h5 class="card-title" align="right">{{ i.price }} SR</h5>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <h1> Nothing Match Your Search </h1>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

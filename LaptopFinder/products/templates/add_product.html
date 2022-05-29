@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Add Products</title>
+{% endblock title %}
+{% block content %}
+<div class="container">
+    <div class="container-fluid">
+        <nav aria-label="breadcrumb" class="navbar">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'products:home' %} ">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Add Products</li>
+            </ol>
+        </nav>
+        <div align="left">
+            <h3>Add Products </h3>
+            {% if submitted %}
+            you submitted successfully !
+            {% else %}
+            <form action="" method=POST enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Add" class="btn btn-secondary">
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+    {% endblock content %}

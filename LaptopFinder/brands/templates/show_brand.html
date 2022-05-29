@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}
+<title> Brands </title>
+{% endblock title %}
+
+{% block content %}
+<br><br>
+<div class="container-fluid">
+    <nav aria-label="breadcrumb" class="navbar">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'products:home' %} ">Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'brands:brand_list' %}">Brands</a></li>
+            <li class="breadcrumb-item active" aria-current="page"> {{ brand.name }}</li>
+        </ol>
+    </nav>
+
+    <div class="card mb-2" style="max-width: 1000px;">
+        <div class="row g-8">
+            <div class="col-md-4">
+                <div class="col d-flex align-items-center justify-content-center">
+                    {% if brand.photo %}
+                    <img src="{{ brand.photo.url }}" class="mx-auto" style="width: 200px;" alt="...">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title"> {{ brand.name }}</h5>
+                    <p class="card-text">{{ brand.overview }} </p>
+                    <p class="card-text"><small class="text-muted"> <a href="{{ brand.website }}"> {{ brand.website }} </a></small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    {% endblock content %}
