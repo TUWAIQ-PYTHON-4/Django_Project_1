@@ -1,0 +1,61 @@
+{% extends 'students_base.html' %}
+
+{% block content %}
+ {% csrf_token %}
+  {{ form.as_p }}
+    <div class="row" style="margin-top: 15px">
+        <div class="col">
+            <div class="mb-3">
+                <label class="form-label">Student Name</label>
+                <input type="text" disabled class="form-control" placeholder="Name of a student" name="studentName"
+                value="{{ student.studentName }}">
+              </div>
+        </div>
+        <div class="col">
+            <div class="mb-3">
+            <label class="form-label">Student ID</label>
+            <input type="text" disabled class="form-control" placeholder="432*******" name="studentId"
+            value="{{ student.studentId }}">
+          </div>
+        </div>
+        <div class="col">
+            <div class="mb-3">
+                <label class="form-label">Student Email</label>
+                <input type="email" disabled class="form-control" placeholder="email@email.com" name="email"
+                value="{{ student.email }}">
+              </div>
+        </div>
+        <div class="col">
+            <div class="mb-3">
+                <label class="form-label">Student Phone</label>
+                <input type="text" disabled class="form-control" placeholder="05********" name="phone"
+                value="{{ student.phone }}">
+              </div>
+        </div>
+    </div>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Subject Name</th>
+      <th scope="col">Subject Description</th>
+      <th scope="col">Subject Code</th>
+      <th scope="col">Subject Image</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for subject in all_subjects %}
+    <tr>
+      <th>{{subject.id}}</th>
+      <td>{{subject.subjectName}}</td>
+      <td>{{subject.description}}</td>
+      <td>{{subject.code}}</td>
+      <td>
+          <img src="{{ subject.image.url }}" style="height: 50px; width: 50px;" />
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

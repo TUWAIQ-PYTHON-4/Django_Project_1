@@ -1,0 +1,39 @@
+{% extends 'students_base.html' %}
+
+
+{% block content %}
+
+
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <div class="mb-3">
+    <label class="form-label">Student Name</label>
+    <input type="text" class="form-control" placeholder="Name of a student" name="studentName"
+    value="{{ student.studentName }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Student ID</label>
+    <input type="text" class="form-control" placeholder="432*******" name="studentId"
+    value="{{ student.studentId }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Student Email</label>
+    <input type="email" class="form-control" placeholder="email@email.com" name="email"
+    value="{{ student.email }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Student Phone</label>
+    <input type="text" class="form-control" placeholder="05********" name="phone"
+    value="{{ student.phone }}">
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+    <button class="btn btn-primary" type="submit">Edit Student</button>
+  </div>
+</form>
+
+
+
+
+{% endblock %}
