@@ -1,0 +1,10 @@
+from django.db import models
+
+class User(models.Model):
+
+    title = models.CharField(db_column='title', max_length=100, blank=False)
+    description = models.TextField(db_column='description', max_length=1000, blank=False)
+    Name = models.CharField(db_column='author', max_length=100, blank=False)
+    year = models.IntegerField(db_column='year',blank=False, default=2000)
+
+

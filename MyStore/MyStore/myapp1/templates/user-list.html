@@ -1,0 +1,31 @@
+{% extends "base2.html" %}
+{% block content %}
+<div class="card-body">
+    <h4>User List</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Name</th>
+                <th scope="col">Year</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.title }}</td>
+                <td>{{ user.description }}</td>
+                <td>{{ user.Name }}</td>
+                <td>{{ user.year }}</td>
+                <td><a type="button" class="btn btn-warning" href="/user-update/{{ user.id }}">Update</a>
+                    <a type="button" class="btn btn-danger" href="/user-delete/{{ user.id }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a type="button" class="btn btn-success" href="{%url 'user-create' %}">Create</a>
+</div>
+{% endblock %}
