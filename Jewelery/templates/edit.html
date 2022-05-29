@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+<br>
+<form  method="POST" action="/update/{{review.id}}">
+  {% csrf_token %}
+     <div>
+            <p class="fw-lighter fs-3">Update Review</p>
+     </div>
+  <div class="mb-3" >
+    <label for="exampleInputEmail1" class="form-label">Name</label>
+    <input type="text" class="form-control" name="name" value="{{review.name}}" id="exampleInputEmail1">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Your Review</label>
+    <input type="text" class="form-control" name="review" value="{{review.review}}" id="exampleInputPassword1">
+  </div>
+  <button type="submit" class="btn btn-outline-secondary">Update</button>
+</form>
+
+</div>
+
+{% endblock %}
+
