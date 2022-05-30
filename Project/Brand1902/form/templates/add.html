@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} | Add Suggestion{% endblock %}
+{% block content %}
+
+<form method="POST" action="{% url 'form/add' %}" class="container">
+    {% csrf_token %}
+    {{ form.as_ul }}
+    <input type="submit" value="Create Suggestion" />
+</form>
+
+{% endblock %} 

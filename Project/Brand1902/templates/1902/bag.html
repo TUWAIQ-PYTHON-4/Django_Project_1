@@ -1,0 +1,29 @@
+{% extends '1902/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="card-group">
+  <div class="card">
+    <img src="..." class="card-img-top" alt="...">
+
+  </div>
+  <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+
+  </div>
+  <div class="card">
+    <img src="..." class="card-img-top" alt="...">
+  </div>
+</div>
+</div>
+</div>
+
+
+
+<form method="POST" action="{% url '1902:home' %}">
+    {% csrf_token %}
+    {{ form.as_ul }}
+    <input type="submit" value="Create Movie" />
+</form>
+{% endblock %}

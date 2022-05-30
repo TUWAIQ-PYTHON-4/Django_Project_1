@@ -1,0 +1,27 @@
+{% extends '1902/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% if products %}
+      {% for product in products %}
+  <div class="col">
+    <div class="card">
+      <img src="{{product.photo.url}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{product.item}}</h5>
+        <p class="card-text">{{product.description}}</p>
+        <h5 class="card-title" align="right"> {{product.price}} SR </h5>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+    {% else %}
+<p> No Products  </p>
+    {% endif %}
+</div>
+</div>
+{% endblock %}
