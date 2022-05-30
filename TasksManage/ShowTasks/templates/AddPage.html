@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} Add-Page
+{% endblock %}
+
+
+{% block content %}
+<center >
+<h3> Add Task page </h3>
+    <br>
+<form method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<p>
+<input type="submit" name="items" value="AddTask!">
+</p>
+</form>
+</center>
+{% endblock %}
