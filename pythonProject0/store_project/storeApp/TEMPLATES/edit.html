@@ -8,7 +8,9 @@
 
 <form class="d-flex" method="POST">
         {% csrf_token %}
+
         <input class="form-control me-2" type="search" placeholder="{{ name.name }}" value="{{ name.name }}" aria-label="Search" name="item">
+
         <input type="hidden" value="{{name.Available }}" name ="Available" >
 
         <button class="btn btn-outline-secondary" type="submit">Edit item</button>

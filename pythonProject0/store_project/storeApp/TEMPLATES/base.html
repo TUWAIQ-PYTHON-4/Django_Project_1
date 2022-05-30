@@ -32,35 +32,6 @@
     </div>
 
 
-  {% if all_names %}
-<table class="table">
-
-{% for i in all_names %}
-
-
-{% if i.Available %}
-<tr class="table-success">
-    <td> <a href="{% url 'edit' i.id %} "> {{ i.name }} </a> </td>
-    <td>{{ i.Available }} </td>
-    <td> <a href="{% url 'delete' i.id %} "> Delete </a> </td>
-
-</tr>
-
-    {% else %}
-<tr>
-    <td> <a href="{% url 'edit' i.id %} "> {{ i.name }} </a>  </td>
-    <td>{{ i.Available }} </td>
-    <td> <a href="{% url 'delete' i.id %} "> Delete </a> </td>
-</tr>
-
-    {% endif%}
-
-
-{% endfor %}
-
-    </table>
-{% endif %}
-
 
 
 

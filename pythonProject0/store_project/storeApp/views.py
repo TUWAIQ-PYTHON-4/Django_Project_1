@@ -12,14 +12,11 @@ def home(request):
 
 def add_products(request: HttpRequest):
     if request.method == 'POST':
-        listForm = ListForm(request.POST)
+        listForm = ListForm(request.POST, request.FILES)
 
         if listForm.is_valid():
-            products = Products(name=listForm.cleaned_data["name"], description=listForm.cleaned_data["description"],
-                                price=listForm.cleaned_data["price"], seller=listForm.cleaned_data["seller"],
-                                photo=listForm.cleaned_data["photo"])
-            products.save()
-            return redirect(resolve_url("products:index"))
+            products = listForm.save()
+            return redirect(resolve_url("home"))
 
     form = ListForm()
     return render(request, 'add_products.html', {"form": form})
@@ -39,7 +36,7 @@ def form_feedback(request):
 def delete(request, Products_id):
     name = Products.objects.get(pk=Products_id)
     name.delete()
-    return redirect('base')
+    return redirect('home')
 
 
 def edit(request, Products_id):
@@ -48,7 +45,7 @@ def edit(request, Products_id):
         form = ListForm(request.POST or None, instance=name)
         if form.is_valid():
             form.save()
-            return redirect('base')
+            return redirect('home')
     else:
         name = Products.objects.get(pk=Products_id)
         return render(request, 'edit.html', {'name': name})
