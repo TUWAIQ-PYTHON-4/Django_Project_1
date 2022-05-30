@@ -5,6 +5,8 @@
 
 
 {% if context %}
+
+<div class="container">
  <table class="table">
 {% for item in context %}
      {% if item.importance == "Very Important" or item.importance == "Important" %}
@@ -26,6 +28,7 @@
      {% endif %}
      {% endfor %}
  </table>
+</div>
 {% endif %}
 
 

@@ -17,7 +17,7 @@ class Form(models.Model):
     name = models.CharField(max_length=150,help_text="Type your full name")
     email = models.EmailField(max_length=200,help_text="Type your Email")
     subject = models.CharField(max_length=50)
-    importance = models.CharField(max_length=250,choices = CHOICES)
-    desc = models.TextField()
+    importance = models.CharField(max_length=250,choices = CHOICES,blank=True,default='Not Important')
+    desc = models.TextField(blank=True)
     def __str__(self) :
         return self.name

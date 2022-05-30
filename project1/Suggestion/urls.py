@@ -4,7 +4,7 @@ from . import views
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('form',views.form, name='form'),
+    path('form',views.home, name='form'),
     path('form/add',views.add, name='form/add'),
     path('delete/<name_id>', views.delete, name='delete'),
     path('edit/<name_id>', views.edit, name='edit')

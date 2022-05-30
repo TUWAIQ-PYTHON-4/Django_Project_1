@@ -17,14 +17,12 @@ def add(request):
 
 
 
-def form(request):
+def home(request):
     if request.method == "POST":
-        form = FormForm(request.POST ,instance=form)
+        form = FormForm(request.POST)
         if form.is_valid():
             form.save()
-            context = Form.objects.all()
-    else:
-        context = Form.objects.all()
+    context = Form.objects.all()
     return render(request,"form.html",{"context":context})
 
 
