@@ -11,8 +11,7 @@ def students_base(request):
         if form.is_valid():
             form.save()
             all_students = students.objects.all()
-
-            return render(request, 'show_students.html', {'all_students': all_students})
+            return render(request, 'show_students.html', {'all_students': all_students} )
     else:
         all_students = students.objects.all()
         return render(request, 'show_students.html', {'all_students': all_students})

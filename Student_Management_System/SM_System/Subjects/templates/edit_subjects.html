@@ -4,7 +4,7 @@
 {% block content %}
 
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form.as_p }}
   <div class="mb-3">
@@ -22,18 +22,32 @@
     <input type="text" class="form-control"  name="code"
     value="{{ subject.code }}">
   </div>
-  <div class="mb-3">
-    <label class="form-label">image</label>
-    <input type="image" class="form-control"  name="image"
-    value="{{ subject.image }}">
+  <div class="row mb-3">
+    <div class="col">
+      <label class="form-label">image</label>
+      <input type="file" class="form-control"  name="image"
+      value="{{ subject.image }}">
+    </div>
+    <div class="col">
+      <img src="{{ subject.image.url }}" style="height:150px">
+    </div>
+  </div>
+    <div class="mb-3">
+    <label class="form-label">student</label>
+    <select class="form-control" name="student" selected="{{subject.student_id}}">
+      {% for student in all_students %}
+        {% if student.id == subject.student_id %}
+        <option value={{student.id}} selected>{{student.studentName}}</option>
+        {% else %}
+        <option value={{student.id}}>{{student.studentName}}</option>
+        {% endif %}
+      {% endfor %}
+    </select>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
     <button class="btn btn-primary" type="submit">Edit Student</button>
   </div>
 </form>
-
-
-
 
 {% endblock %}

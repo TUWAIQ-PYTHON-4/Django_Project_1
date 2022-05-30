@@ -7,7 +7,7 @@ from Students.models import students
 
 def subjects_base(request):
     if request.method == "POST":
-        form = subjectsForm(request.POST)
+        form = subjectsForm(request.POST , request.FILES)
         if form.is_valid():
             form.save()
             all_subjects = subjects.objects.all()
@@ -32,4 +32,6 @@ def edit_subject(request, list_id):
             return redirect('subjects')
     else:
         subject = subjects.objects.get(pk=list_id)
-        return render(request, 'edit_subjects.html', {'subject': subject})
+        all_students = students.objects.all()
+        print(subject.student_id)
+        return render(request, 'edit_subjects.html', {'subject': subject, 'all_students': all_students})
