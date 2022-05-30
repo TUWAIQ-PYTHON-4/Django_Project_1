@@ -2,11 +2,19 @@
 {% load static %}
 
     {% block content %}
-    <form  method='POST' action="{url 'reviews/reviews'}">
+    <form  method="POST" action="{url 'reviews/reviews'}">
     {% csrf_token %}
 
     {{ form.as_p }}
         <p> <input type="submit" name="reviews"> send review </input></p>
+
+
+  <label for="name">Your name:</label><br>
+  <input type="text" id="name" name="name"><br>
+  <label for="Review">write your review:</label><br>
+  <input type="text" id="Review" name="Review">
+         <p> <input type="submit" name="reviews"> send review </input></p>
+
     </form>
 
 <!--<p>-->
