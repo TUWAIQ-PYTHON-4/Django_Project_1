@@ -11,6 +11,7 @@ class ViewBook(models.Model):
         return self.namebook
 '''
 
+
 class Review(models.Model):
     name = models.CharField(verbose_name="name", max_length=50, default="anonymous")
     comment = models.TextField(max_length=200)
