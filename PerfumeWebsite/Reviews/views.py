@@ -1,28 +1,26 @@
 from django.shortcuts import render, redirect
+from .forms import RevForm
+from django.http import HttpResponseRedirect ,HttpRequest
 from .models import Reviews
-from .forms import reviewsForm , revForm
-def reviews(request):
+
+
+def reviews_f(request):
+    form = RevForm(request.POST or None)
     if request.method == "POST":
-        form = reviewsForm(request.POST or None)
+        form = RevForm(request.POST or None)
         if form.is_valid():
             form.save()
-            all_items = Reviews.objects.all()
-            return render(request, 'reviews/reviews.html', {'all_items': all_items})
+            return render(request, "reviews/reviews.html", {"form": form})
     else:
-        all_items = Reviews.objects.all()
-        return render(request, 'reviews/reviews.html', {'all_items': all_items})
+       form= RevForm
+    return render(request, "reviews/reviews.html", {"form": form})
+
+def reviews_list(request):
+    rev_list=Reviews.objects.all()
+    context = {'rev_list':rev_list}
+    return render(request,"reviews/reviews.html",context)
+
 def delete(request, reviews_id):
     item = Reviews.objects.get(pk=reviews_id)
     item.delete()
     return redirect('reviews/reviews.html')
-def fexample(request):
-    if request.method == "POST":
-        form =revForm(request.POST)
-    else:
-        form =revForm()
-    if request.method == "POST":
-        form =revForm(request.POST)
-    if form.is_valid():
-        for name, value in form.cleaned_data.items():
-            print("{}: ({}) {}".format(name, type(value), value))
-    return render(request, "reviews/reviews.html", {"method": request.method, "form": form})
