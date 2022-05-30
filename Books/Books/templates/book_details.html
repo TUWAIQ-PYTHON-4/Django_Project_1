@@ -1,0 +1,53 @@
+{% extends 'htmlfiles/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+{% block content %}
+
+<img src="{{ movie.image.url }}" />
+<h1>{{ movie.title }}</h1>
+
+<h3>Movie Info:</h3>
+<p>
+    {{ movie.desc }}
+
+</p>
+<br>
+<h4>Movie Rating : {{ movie.rating }}</h4>
+
+<h4>Comments : </h4>
+
+{% for comment in  movie.comment_set.all %}
+
+<br>
+<br>
+
+<p>
+    <strong>{{ comment.name }}</strong>
+    <p>
+        {{ comment.content }}
+    </p>
+</p>
+
+{% endfor %}
+
+<br>
+
+<h3> Add Comment :</h3>
+<form action="{% url 'movies:movie_detail' movie.id %}" method="POST" >
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <input value="Submit Comment" type="submit" />
+</form>
+
+{% endblock %}
+</body>
+</html>
