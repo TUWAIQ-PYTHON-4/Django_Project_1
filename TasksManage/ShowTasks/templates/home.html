@@ -4,10 +4,9 @@
 {% endblock %}
 
 {% block navbar %}
-<form class="d-flex" method="POST">
-        {% csrf_token %}
+<form class="d-flex" method="GET" xmlns="http://www.w3.org/1999/html">
         <input class="form-control me-2" type="search" placeholder="Search of the task" name="search" aria-label="Search">
-        <button class="btn btn-outline-secondary" type="submit" >Search!</button>
+        <button class="btn btn-outline-secondary" type="submit" value="search" >Search!</button>
       </form>
 {% endblock navbar %}
 
@@ -43,8 +42,9 @@
     <td>  {{ i.name }}                   </td>
     <td> <a href="{% url 'delete' i.id %} "> <img src="{% static 'images/delete.icon.jpg' %}" width="35" height="20"></a> </td>
 
+    {% comment %}
     <td> <a href="{% url 'edit' i.id %} "> <img src="{% static 'images/edit.icon.png' %}" width="25" height="15"></a> </td>
-
+    {% endcomment %}
 </tr>
 
 {% endfor %}

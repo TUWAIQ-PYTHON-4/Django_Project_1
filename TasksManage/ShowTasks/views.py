@@ -5,7 +5,13 @@ from .forms import TaskModelForm
 
 # Create your views here.
 def home(request):
-    tasks_items = Tasks.objects.all()
+    if request.GET: # search tasks by title
+        search_item = request.GET
+        search_item = search_item['search']
+        tasks_items = Tasks.objects.filter(title__contains=search_item)
+
+    else: # show all tasks if the search fields is empty
+        tasks_items = Tasks.objects.all()
 
     return render(request, 'home.html', {'tasks_items': tasks_items})
 
@@ -14,15 +20,11 @@ def add(request):
     if request.method == "POST":
         form = TaskModelForm(request.POST)
         if form.is_valid():
-            new_task = form.save()
+            tasks_items = form.save()
 
     form = TaskModelForm()
 
-    return render(request, "AddPage.html", {"method": request.method, "form": form})
-
-
-def search(request):
-    pass
+    return render(request, 'AddPage.html', {"method": request.method, "form": form})
 
 
 def delete(request, Tasks_id):
@@ -31,5 +33,5 @@ def delete(request, Tasks_id):
     return redirect('home')
 
 
-def edit(request, Tasks_id):
+def edit(request):
     pass
