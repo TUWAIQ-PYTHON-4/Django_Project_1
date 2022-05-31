@@ -11,3 +11,6 @@ def products(request):
     context = {'product': products}
 
     return render(request, 'products/products.html', {'products': products})
+
+def about(request):
+    return render(request, 'products/about.html')

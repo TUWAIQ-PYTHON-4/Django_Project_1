@@ -1,0 +1,42 @@
+{% extends 'products/base.html' %}
+{% load static %}
+{% block e %}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style >
+  p{
+  font-family: "Times New Roman", Times, serif;
+  }
+  h1{
+  color: pink;
+  }
+
+  </style>
+	<title>
+		about us
+	</title>
+
+</head>
+
+<body>
+<h1><em>About us</em></h1>
+	<img src="{% static 'images/weblogo.png' %}"
+		align="right">
+	<img src="{% static 'images/weblogo.png' %}"
+		align="left"><br>
+<br><br><br><br><br><br>
+<p>Influential, innovative and progressive, Gucci is reinventing a wholly modern approach to fashion. Under the new vision of creative director Alessandro Michele, the House has redefined luxury for the 21st century, further reinforcing its position as one of the world’s most desirable fashion houses. Eclectic, contemporary, romantic—Gucci products represent the pinnacle of Italian craftsmanship and are unsurpassed for their quality and attention to detail.
+
+Gucci is part of the Kering Group. A global Luxury group, Kering manages the development of a series of renowned Houses in Fashion, Leather Goods, Jewelry and Watches.
+
+Discover the stories behind Alessandro Michele's collections, exclusively
+    </p>
+</body>
+
+</html>
+
+{%endblock%}

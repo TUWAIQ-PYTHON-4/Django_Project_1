@@ -1,31 +1,12 @@
 {% extends 'products/base.html' %}
 {% load static%}
-
 {% block content %}
-
-<form method="post" enctype="multipart/form-data">
-
-{{ form.as_p }}
-<p>
-  {% csrf_token %}
-<input type="submit" name="submit_input" value="Submit">
-</p>
-
-</form>
-{% if rev_list %}
-<table class="table">
-
-{% for i in rev_list %}
-
-  <tr>
-    <td> {{ i.name }}  </td>
-    <td>{{ i.reviews_description }} </td>
+<div class="container">
+    <h3> Add Review :</h3>
+<form action="{% url 'add_rev'  %}" method="POST" >
     {% csrf_token %}
-    <td><a href="{% url 'delete' i.id %} "> Delete </a></td>
+    {{ form.as_p }}
+    <input value="Add" type="submit" />
+</form> </div>
 
-</tr>
-{% endfor %}
-    </table>
-{% endif %}
-
-{%endblock%}
+{% endblock %}

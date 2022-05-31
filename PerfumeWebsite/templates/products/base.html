@@ -33,8 +33,11 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{%url 'home'%}" style="color:violet;" ><b><em>Home</em></b></a>
         </li>
+          <li class="nav-item">
+          <a class="nav-link" href="{%url 'about' %}" style="color:violet;"><b> <em>About us</em></b> </a>
+        </li>
         <li class="nav-item">
-          <a class="nav-link" href="{%url 'reviews_f' %}" style="color:violet;"><b> <em>Reviews</em></b> </a>
+          <a class="nav-link" href="{%url 'index' %}" style="color:violet;"><b> <em>Reviews</em></b> </a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="{%url 'products'%}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:violet;">
@@ -53,12 +56,14 @@
 </nav>
 {% block content%}
 {%endblock%}
+    {% block e %}
+    {%endblock%}
 
     <div class="container">
   <footer class="py-3 my-4">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
       <li class="nav-item"><a href="{%url 'home'%}" class="nav-link px-2 text-muted" >Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+      <li class="nav-item"><a href="{%url 'about' %}" class="nav-link px-2 text-muted">About</a></li>
     </ul>
     <p class="text-center text-muted">© 2022 Perfume , Inc</p>
   </footer>
