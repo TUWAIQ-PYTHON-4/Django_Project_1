@@ -1,0 +1,16 @@
+{% extends 'products/base.html' %}
+{% block title %} | Edit {% endblock %}
+
+{% block content %}
+
+{% if item %}
+    <form class="container" method="POST" >
+       {% csrf_token %}
+      <p><input class="form-control me-2" type="" placeholder={{item.name}} value="{{ item.name }}" name="name" aria-label="Search"></p>
+      <p><input class="form-control me-2" type="" placeholder={{item.email}} value="{{ item.email }}" name="email" aria-label="Search"></p>
+      <p><input class="form-control me-2" type="" placeholder={{item.subject}} value="{{ item.subject }}" name="subject" aria-label="Search"></p>
+      <p><button class="btn btn-outline-success" type="submit" >Submit</button></p>
+    </form>
+{% endif %}
+
+{% endblock %}

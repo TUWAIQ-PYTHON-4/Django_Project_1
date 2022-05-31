@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'products'
+    'products',
+    'comment'
 ]
 
 MIDDLEWARE = [
@@ -76,11 +77,13 @@ WSGI_APPLICATION = 'shopping.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'shopping',
+        'ENGINE': 'django.db.backends.postgresql',
+
+        'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': '12345',
-        'HOST' : 'localhost'
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -119,8 +122,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = '/static/',
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'shopping/static')
 ]

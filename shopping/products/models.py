@@ -17,12 +17,11 @@ class Product(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True)
     price = models.IntegerField()
-    seller = models.ForeignKey(Seller, on_delete=models.DO_NOTHING)
+    seller = models.ForeignKey(Seller, on_delete=models.DO_NOTHING) #ONE TO MANY
     photo = models.ImageField(upload_to='products/photo/')
 
 
-
-    def __str__(self):
-        return self.name
+    def __str__(self):                      # representation on model.
+         return self.name
 
 
