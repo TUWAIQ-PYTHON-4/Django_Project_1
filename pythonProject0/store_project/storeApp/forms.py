@@ -17,4 +17,5 @@ class FeedbackForm(forms.Form):
 class ListForm(forms.ModelForm):
     class Meta:
         model = Products
-        fields = '__all__'
+        fields = ["name","description","price","seller"]
+

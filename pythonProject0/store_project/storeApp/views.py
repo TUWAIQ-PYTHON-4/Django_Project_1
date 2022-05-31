@@ -16,7 +16,7 @@ def add_products(request: HttpRequest):
 
         if listForm.is_valid():
             products = listForm.save()
-            return redirect(resolve_url("home"))
+        return redirect(resolve_url("home"))
 
     form = ListForm()
     return render(request, 'add_products.html', {"form": form})
@@ -45,7 +45,7 @@ def edit(request, Products_id):
         form = ListForm(request.POST or None, instance=name)
         if form.is_valid():
             form.save()
-            return redirect('home')
+        return redirect('home')
     else:
         name = Products.objects.get(pk=Products_id)
         return render(request, 'edit.html', {'name': name})
