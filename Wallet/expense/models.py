@@ -22,12 +22,12 @@ class Category(models.Model):
 class Expense(models.Model):
     amount = models.FloatField()
     date = models.DateField(default=now)
-    description = models.TextField()
-    bill = models.ImageField(upload_to='expense/bill_img', default="")
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    description = models.TextField(null=True)
+    bill = models.ImageField(upload_to='expense/bill_img', null=True)
+    category = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.description
+        return self.category
 
     class Meta:
         ordering: ['-date']

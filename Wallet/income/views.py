@@ -6,6 +6,10 @@ from django.contrib import messages
 
 # Create your views here.
 
+#def home(request):
+    #return render(request,'home.html')
+
+
 def index(request):
     categories = Source.objects.all()
     income = Income.objects.all()
