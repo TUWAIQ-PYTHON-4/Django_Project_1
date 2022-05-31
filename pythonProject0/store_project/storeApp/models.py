@@ -18,7 +18,7 @@ class Products(models.Model):
     description = models.TextField(blank=True)
     price = models.IntegerField()
     seller = models.ForeignKey(Seller, on_delete=models.DO_NOTHING)
-    photo = models.ImageField(upload_to='products/photos/')
+    photo = models.ImageField(blank=True,upload_to='products/photos/')
     Available = models.BooleanField(default=True)
 
     def __str__(self):

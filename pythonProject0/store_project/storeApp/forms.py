@@ -17,5 +17,5 @@ class FeedbackForm(forms.Form):
 class ListForm(forms.ModelForm):
     class Meta:
         model = Products
-        fields = ["name","description","price","seller"]
+        fields = ["name","description","price","seller","photo","Available"]
 
