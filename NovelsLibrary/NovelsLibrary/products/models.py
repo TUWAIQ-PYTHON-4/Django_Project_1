@@ -13,6 +13,7 @@ class Publisher (models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True)
+    price = models.IntegerField()
     Publisher = models.ForeignKey(Publisher, on_delete=models.DO_NOTHING)
     photo = models.ImageField(upload_to='product/photos/')
     def __str__(self):

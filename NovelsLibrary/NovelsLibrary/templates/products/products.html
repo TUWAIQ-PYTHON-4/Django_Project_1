@@ -3,7 +3,7 @@
 
 d{% block content %}
 <div class = "container">
-<div class="container-fluid"
+<div class="container-fluid">
 <nav aria-label="breadcrumb" class="navbar">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
@@ -12,7 +12,7 @@ d{% block content %}
   </ol>
 </nav>
 </div>
-<div class="row row-cols-1 row-cols-md-2 g-4">
+<div class="row row-cols-1 row-cols-md-3 g-4">
   {% if products %}
   {% for product in products %}
   <div class="col">
@@ -21,13 +21,14 @@ d{% block content %}
       <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
         <p class="card-text">{{ product.description }}</p>
+        <h5 class="card-title" align="right">{{ product.price }} SR </h5>
 
       </div>
     </div>
     </div>
     {% endfor %}
     {% else %}
-    <p> No  Products Avalible </p>
+    <p> No  Books Avalible </p>
     {% endif %}
 
 </div>
@@ -70,5 +71,5 @@ d{% block content %}
   </ul>
     {% endif %}
 </nav>
-</>
+
 {% endblock %}
