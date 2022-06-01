@@ -11,7 +11,7 @@ from django.contrib import messages
 
 
 def index(request):
-    categories = Source.objects.all()
+    source = Source.objects.all()
     income = Income.objects.all()
     paginator = Paginator(income, 5)
     page_number = request.GET.get('page')
@@ -45,6 +45,17 @@ def add_income(request):
         if not description:
             messages.error(request, 'description is required')
             return render(request, 'income/add_income.html', context)
+        date = request.POST['income_date']
+        source = request.POST['source']
+
+        if not date:
+            messages.error(request, 'date is required')
+            return render(request, 'income/add_income.html', context)
+        source = request.POST['source']
+
+        if not source:
+            messages.error(request, 'source is required')
+            return render(request, 'income/add_income.html', context)
 
         Income.objects.create(amount=amount, date=date, source=source, description=description)
         messages.success(request, 'Record saved successfully')
@@ -74,13 +85,20 @@ def income_edit(request, id):
         if not description:
             messages.error(request, 'description is required')
             return render(request, 'income/edit_income.html', context)
-        income.amount = amount
-        income. date = date
-        income.source = source
-        income.description = description
+        date = request.POST['income_date']
+        source = request.POST['source']
+
+        if not date:
+            messages.error(request, 'date is required')
+            return render(request, 'income/edit_income.html', context)
+        source = request.POST['source']
+
+        if not source:
+            messages.error(request, 'source is required')
+            return render(request, 'income/edit_income.html', context)
 
         income.save()
-        messages.success(request, 'Record updated  successfully')
+        messages.success(request, 'Record updated successfully')
 
         return redirect('income')
 

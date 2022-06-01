@@ -1,4 +1,3 @@
-from pstats import SortKey
 from django.db import models
 from django.utils.timezone import now
 
@@ -15,7 +14,7 @@ class Source(models.Model):
 
 
 class Income(models.Model):
-    amount = models.FloatField()  # DECIMAL
+    amount = models.FloatField()
     date = models.DateField(default=now)
     description = models.TextField()
     source = models.CharField(max_length=255)

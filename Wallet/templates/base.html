@@ -17,28 +17,35 @@
   </head>
  
   <body>
-    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow" >
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"><img src="{% static 'img/logo_img.png' %}" width="25" height="25" class="d-inline-block align-text-top" style="margin-right: 10;"><strong> | Wallet</strong></a>
-
-      <ul class="navbar-nav px-3" style="display: flex; flex-direction: row; align-items: center;">
-        <li class="nav-item text-nowrap"> <span class="nav-link" href=""></span></li>
-        <li class="nav-item text-nowrap mt-3 ml-2"></li>
-      </ul>
-
-    </nav>
-
-    <div class="container-fluid">
-      <div class="row">
-
-        {% include 'partials/_sidebar.html' %}
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-          {% block content %} 
-
-          {% endblock %}
-        {% include 'partials/_footer.html' %}
-        </main>
+    <header>
+      <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow" >
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"><img src="{% static 'img/logo_img.png' %}" width="25" height="25" class="d-inline-block align-text-top" style="margin-right: 10;"><strong> | Wallet</strong></a>
+  
+        <ul class="navbar-nav px-3" style="display: flex; flex-direction: row; align-items: center;">
+          <li class="nav-item text-nowrap"> <span class="nav-link" href=""></span></li>
+          <li class="nav-item text-nowrap mt-3 ml-2"></li>
+        </ul>
+  
+      </nav>
+  
+    </header>
+    <body>
+      <div class="container-fluid", style="overflow: scroll;">
+        <div class="row">
+  
+          {% include 'partials/_sidebar.html' %}
+          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" style="margin-bottom: 150px;">
+            {% block content %} 
+  
+            {% endblock %}
+          </main>
+        </div>
       </div>
-    </div>
+    </body>
+    <footer>
+      {% include 'partials/_footer.html' %}
+    </footer>
+
 
 
     <script

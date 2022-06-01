@@ -1,11 +1,12 @@
-from unicodedata import category
 from django.shortcuts import render, redirect
 from .models import Category, Expense
 from django.contrib import messages
-import json
-from django.http import JsonResponse
 from django.core.paginator import Paginator
 import datetime
+import json
+from django.http import JsonResponse
+
+
 
     
 def index(request):
@@ -44,6 +45,20 @@ def add_expense(request):
         if not description:
             messages.error(request, 'description is required')
             return render(request, 'expense/add_expense.html', context)
+        date = request.POST['expense_date']
+        category=request.POST['category']
+        bill = request.POST['bill']
+
+        if not date:
+            messages.error(request, 'date is required')
+            return render(request, 'expense/add_expense.html', context)
+        category=request.POST['category']
+        bill = request.POST['bill']
+
+        if not category:
+            messages.error(request, 'category is required')
+            return render(request, 'expense/add_expense.html', context)
+        bill = request.POST['bill']
 
         Expense.objects.create(amount=amount, date=date, category=category, description=description, bill=bill)
         messages.success(request, 'Expense saved successfully')
@@ -72,16 +87,23 @@ def expense_edit(request, id):
         category=request.POST['category']
         bill = request.POST['bill']
 
-
         if not description:
             messages.error(request, 'description is required')
             return render(request, 'expense/edit_expense.html', context)
-
-        expense.amount = amount
-        expense.date = date
+        date = request.POST['expense_date']
         category=request.POST['category']
-        expense.description = description
-        expense.bill = bill
+        bill = request.POST['bill']
+
+        if not date:
+            messages.error(request, 'date is required')
+            return render(request, 'expense/edit_expense.html', context)
+        category=request.POST['category']
+        bill = request.POST['bill']
+
+        if not category:
+            messages.error(request, 'category is required')
+            return render(request, 'expense/edit_expense.html', context)
+        bill = request.POST['bill']
 
         expense.save()
         messages.success(request, 'Expense updated successfully')
